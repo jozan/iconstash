@@ -40,3 +40,4 @@ for file in $dir_path/*.svg
     echo "{ id: \"ionicon-$filename\", getIcon: () => require(\"./ionicons/solid/$filename.svg\") }, " >> $output_file
 end
 
+echo "] as const" >> $output_file

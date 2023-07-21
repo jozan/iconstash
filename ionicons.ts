@@ -505,3 +505,4 @@ export const IonIcons = [
 { id: "ionicon-WifiIcon", getIcon: () => require("./ionicons/solid/WifiIcon.svg") }, 
 { id: "ionicon-WineIcon", getIcon: () => require("./ionicons/solid/WineIcon.svg") }, 
 { id: "ionicon-WomanIcon", getIcon: () => require("./ionicons/solid/WomanIcon.svg") }, 
+] as const
