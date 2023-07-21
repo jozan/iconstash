@@ -4,7 +4,8 @@ preprocessed svg icons for an app i'm building.
 
 ## usage
 
-you need [`bun`](https://bun.sh) installed in your system. also fish shell.
+you need [`bun`](https://bun.sh) installed in your system. also fish shell. and
+ripgrep.
 
 then you need to have the icons locally
 
