@@ -1,7 +1,18 @@
 #!/usr/bin/env fish
 
+# get first argument
+
+set icons $argv[1]
+
+## only allow icons argument to be either heroicons or ionicons
+
+if test "$icons" != "heroicons" -a "$icons" != "ionicons"
+    echo "argument must be either heroicons or ionicons. given: $icons"
+    exit 1
+end
+
 set previous_clip ""
-set filter_list "./filter_heroicons"
+set filter_list "./filter_$icons"
 touch $filter_list
 
 # Run an infinite loop to continuously check for changes
@@ -21,7 +32,7 @@ while true
         echo "CHANGED: $current_clip"
         echo $current_clip >> $filter_list && sort -u $filter_list -o $filter_list
         command ./generate.fish
-        cp heroicons.ts ../daylow/src/icons
+        cp $icons.ts ../daylow/src/icons
 
         set previous_clip $current_clip
     end

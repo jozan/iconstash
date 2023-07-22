@@ -41,3 +41,23 @@ for file in $dir_path/*.svg
 end
 
 echo "] as const" >> $output_file
+
+# ionicons solid -> png
+set dir_path "./output/ionicons/solid"
+set output_file "./ionicons_png.ts"
+set filter_list "./filter_ionicons"
+touch $filter_list
+
+echo "export const IonIcons = [" > $output_file
+
+for file in $dir_path/*.svg
+    set filename (basename -- "$file" .svg)
+
+    if rg -Fxq $filename $filter_list
+        continue
+    end
+
+    echo "{ id: \"ionicon-$filename\", getIcon: () => require(\"./ionicons/solid-png/$filename.png\") }, " >> $output_file
+end
+
+echo "] as const" >> $output_file

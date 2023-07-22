@@ -12,6 +12,8 @@ end
 set ionicons_output_dir "./output/ionicons"
 mkdir -p $ionicons_output_dir
 
+bun run svgo
+
 for f in ./node_modules/ionicons/dist/svg/*.svg
   switch $f
     case '*-outline.svg'
@@ -30,4 +32,11 @@ for f in ./node_modules/ionicons/dist/svg/*.svg
   cp $f $ionicons_output_dir/$dir/$newname.svg
 end
 
-bun run svgo
+mkdir -p ./output/ionicons/solid-png
+
+for f in ./output/ionicons/solid/*.svg
+  set name (basename $f .svg)
+
+  inkscape $f -w 72 -o ./output/ionicons/solid-png/$newname.png
+end
+
