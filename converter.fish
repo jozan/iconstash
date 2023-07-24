@@ -8,11 +8,11 @@ find ./node_modules/heroicons/24/solid -type f -name "*.svg" | while read -l fil
     cp $file ./output/heroicons-solid-24/$newname.svg
 end
 
+bun run svgo
+
 # ionicons
 set ionicons_output_dir "./output/ionicons"
 mkdir -p $ionicons_output_dir
-
-bun run svgo
 
 for f in ./node_modules/ionicons/dist/svg/*.svg
   switch $f
