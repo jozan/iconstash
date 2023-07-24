@@ -1,13 +1,13 @@
 # iconstash
 
-preprocessed svg icons for an app i'm building.
+preprocessed svg & png icons for an app i'm building.
 
 ## usage
 
 you need [`bun`](https://bun.sh) installed in your system. also fish shell. and
-ripgrep.
+ripgrep. and inkscape.
 
-then you need to have the icons locally
+then you need to fetch all the icons to your machine
 
 ```
 $ bun i
